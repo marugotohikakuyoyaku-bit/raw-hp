@@ -165,9 +165,18 @@ section {
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid var(--color-line);
+}
+
+/* backdrop-filter は position:fixed の子要素（モバイルメニュー）の基準点を
+   ヘッダー自身にずらしてしまうため、独立した疑似要素に分離する */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: rgba(245, 248, 244, 0.9);
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--color-line);
+  z-index: -1;
 }
 
 .header-inner {
