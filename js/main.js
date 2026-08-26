@@ -59,34 +59,17 @@ document.addEventListener("DOMContentLoaded", function () {
   var points = visual.querySelectorAll(".map-point");
   var listItems = document.querySelectorAll(".map-list-item");
 
-  var MAP_IMAGE = "images/map-aerial.jpg";
-  var SOURCE_W = 1920;
-  var SOURCE_H = 1080;
-  var CONTENT_W = 968;
-  var CONTENT_H = 1080;
-  var ZOOM_SCALE = 1.6;
-  var PREVIEW_SIZE = 200;
-
-  function setZoom(pointEl) {
-    var px = parseFloat(pointEl.dataset.px);
-    var py = parseFloat(pointEl.dataset.py);
-    var halfWindow = PREVIEW_SIZE / (2 * ZOOM_SCALE);
-    var cx = Math.min(Math.max(px, halfWindow), CONTENT_W - halfWindow);
-    var cy = Math.min(Math.max(py, halfWindow), CONTENT_H - halfWindow);
-    var bgW = SOURCE_W * ZOOM_SCALE;
-    var bgH = SOURCE_H * ZOOM_SCALE;
-    var posX = -(cx * ZOOM_SCALE - PREVIEW_SIZE / 2);
-    var posY = -(cy * ZOOM_SCALE - PREVIEW_SIZE / 2);
-
-    popupZoom.style.backgroundImage = 'url("' + MAP_IMAGE + '")';
-    popupZoom.style.backgroundSize = bgW + "px " + bgH + "px";
-    popupZoom.style.backgroundPosition = posX + "px " + posY + "px";
+  function setPhoto(pointEl) {
+    var photo = pointEl.dataset.photo;
+    popupZoom.style.backgroundImage = photo ? 'url("' + photo + '")' : "none";
+    popupZoom.style.backgroundSize = "cover";
+    popupZoom.style.backgroundPosition = "50% 50%";
   }
 
   function activate(area, pointEl) {
     popupName.textContent = pointEl.dataset.name;
     popupDesc.textContent = pointEl.dataset.desc;
-    setZoom(pointEl);
+    setPhoto(pointEl);
     popup.style.left = pointEl.style.left;
     popup.style.top = pointEl.style.top;
     popup.classList.toggle("is-below", parseFloat(pointEl.style.top) < 50);

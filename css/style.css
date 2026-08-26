@@ -1,14 +1,18 @@
 /* ==========================================================================
-   籠(RAW) — 伊豆大島 一日一組限定の隠遁ステイ
+   籠(RAW) — 東京の離島 一日一組限定 家族の隠れ家ステイ
    ========================================================================== */
 
 :root {
-  --color-bg: #1a1411;
-  --color-bg-soft: #241d17;
-  --color-text: #e8e0d0;
-  --color-text-muted: #96897a;
-  --color-line: #332b23;
-  --color-accent: #b15d34;
+  --color-bg: #f5f8f4;
+  --color-bg-soft: #e9f2ec;
+  --color-text: #22384a;
+  --color-text-muted: #5b7268;
+  --color-line: #d7e3da;
+  --color-accent: #b9661d;
+  --color-accent-green: #3f7a52;
+
+  --color-text-on-photo: #f7f7f2;
+  --color-text-on-photo-muted: #d9e6de;
 
   --font-serif: "Shippori Mincho", "Hiragino Mincho ProN", serif;
   --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
@@ -161,7 +165,7 @@ section {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(26, 20, 17, 0.92);
+  background: rgba(245, 248, 244, 0.9);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--color-line);
 }
@@ -213,7 +217,7 @@ section {
 .site-nav a:hover,
 .site-nav a.is-active {
   color: var(--color-text);
-  border-bottom-color: var(--color-accent);
+  border-bottom-color: var(--color-accent-green);
 }
 
 .site-nav a.nav-cta {
@@ -359,7 +363,7 @@ section {
   align-items: center;
   justify-content: center;
   background:
-    radial-gradient(120% 120% at 18% 12%, rgba(177, 93, 52, 0.08), transparent 55%),
+    radial-gradient(120% 120% at 18% 12%, rgba(63, 122, 82, 0.06), transparent 55%),
     linear-gradient(150deg, var(--color-bg-soft), var(--color-bg));
   border: 1px solid var(--color-line);
   overflow: hidden;
@@ -394,8 +398,9 @@ section {
 
 .hero {
   position: relative;
-  height: 100svh;
-  min-height: 520px;
+  height: 82svh;
+  min-height: 480px;
+  max-height: 760px;
   display: flex;
   align-items: flex-start;
   overflow: hidden;
@@ -416,10 +421,10 @@ section {
   z-index: 1;
   background: linear-gradient(
     to bottom,
-    rgba(13, 10, 7, 0.72) 0%,
-    rgba(13, 10, 7, 0.44) 28%,
-    rgba(13, 10, 7, 0.14) 52%,
-    rgba(13, 10, 7, 0.04) 100%
+    rgba(9, 20, 24, 0.72) 0%,
+    rgba(9, 20, 24, 0.44) 28%,
+    rgba(9, 20, 24, 0.14) 52%,
+    rgba(9, 20, 24, 0.04) 100%
   );
 }
 
@@ -429,7 +434,7 @@ section {
   width: 100%;
   padding: clamp(110px, 16vw, 170px) var(--space-page) 0;
   text-align: center;
-  color: var(--color-text);
+  color: var(--color-text-on-photo);
 }
 
 .hero-mark {
@@ -455,7 +460,7 @@ section {
   font-size: clamp(1.7rem, 4.6vw, 2.5rem);
   font-weight: 500;
   line-height: 1.5;
-  color: var(--color-text);
+  color: var(--color-text-on-photo);
   letter-spacing: 0.1em;
 }
 
@@ -470,10 +475,10 @@ section {
   pointer-events: none;
   background: linear-gradient(
     to bottom,
-    rgba(13, 10, 7, 0) 0%,
-    rgba(13, 10, 7, 0.5) 30%,
-    rgba(13, 10, 7, 0.5) 70%,
-    rgba(13, 10, 7, 0) 100%
+    rgba(9, 20, 24, 0) 0%,
+    rgba(9, 20, 24, 0.5) 30%,
+    rgba(9, 20, 24, 0.5) 70%,
+    rgba(9, 20, 24, 0) 100%
   );
 }
 
@@ -491,9 +496,9 @@ section {
   font-size: clamp(1rem, 2.2vw, 1.3rem);
   font-weight: 400;
   line-height: 1.7;
-  color: var(--color-text-muted);
+  color: var(--color-text-on-photo-muted);
   letter-spacing: 0.14em;
-  text-shadow: 0 1px 10px rgba(13, 10, 7, 0.9), 0 1px 3px rgba(13, 10, 7, 0.9);
+  text-shadow: 0 1px 10px rgba(9, 20, 24, 0.9), 0 1px 3px rgba(9, 20, 24, 0.9);
 }
 
 @media (max-width: 600px) {
@@ -511,7 +516,7 @@ section {
   z-index: 2;
   font-size: 0.65rem;
   letter-spacing: 0.3em;
-  color: var(--color-text-muted);
+  color: var(--color-text-on-photo-muted);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -522,7 +527,7 @@ section {
   content: "";
   width: 1px;
   height: 34px;
-  background: var(--color-accent);
+  background: var(--color-accent-green);
   opacity: 0.8;
 }
 
@@ -542,14 +547,23 @@ section {
   padding-bottom: clamp(64px, 9vw, 110px);
 }
 
+.landing-title {
+  max-width: 640px;
+  margin: 0 auto clamp(28px, 4vw, 44px);
+  padding: 0 var(--space-page);
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: clamp(0.8rem, 4vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
 .landing-visual {
   position: relative;
   width: 100%;
-  min-height: clamp(360px, 46vw, 600px);
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: clamp(64px, 10vw, 108px);
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--color-bg-soft);
 }
@@ -560,42 +574,9 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 52%;
+  object-position: 50% 50%;
   color: transparent;
-  filter: saturate(0.45) brightness(0.75) sepia(0.1);
-}
-
-.landing-visual-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    to bottom,
-    rgba(13, 10, 7, 0.8) 0%,
-    rgba(13, 10, 7, 0.72) 30%,
-    rgba(13, 10, 7, 0.64) 55%,
-    rgba(13, 10, 7, 0.76) 100%
-  );
-}
-
-.landing-visual-copy {
-  position: relative;
-  z-index: 2;
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 0 var(--space-page);
-  text-align: center;
-  font-size: clamp(1.05rem, 2.4vw, 1.4rem);
-  line-height: 1.75;
-  letter-spacing: 0.05em;
-  color: var(--color-text);
-}
-
-@media (max-width: 600px) {
-  .landing-visual {
-    min-height: clamp(280px, 66vw, 420px);
-    padding-top: clamp(44px, 12vw, 72px);
-  }
+  filter: saturate(0.95) brightness(1.02);
 }
 
 /* --- トップページ：章の区切り（静かな細罫） -------------------------------- */
@@ -604,7 +585,7 @@ section {
   width: 96px;
   height: 1px;
   margin: 0 auto clamp(28px, 4.5vw, 48px);
-  background: rgba(232, 224, 208, 0.18);
+  background: rgba(63, 122, 82, 0.25);
 }
 
 /* --- トップページ：奪う宣言（テキスト×写真 交互レイアウト） --------------- */
@@ -624,6 +605,15 @@ section {
 
 .declare-text {
   text-align: left;
+}
+
+.declare-note {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+  opacity: 0.85;
 }
 
 .declare-row--reverse .declare-text {
@@ -668,7 +658,7 @@ section {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(150% 130% at 50% 50%, transparent 68%, rgba(26, 20, 17, 0.6) 100%);
+  background: radial-gradient(150% 130% at 50% 50%, transparent 68%, rgba(9, 20, 24, 0.6) 100%);
 }
 
 @media (max-width: 760px) {
@@ -718,7 +708,7 @@ section {
   bottom: 0;
   width: 26px;
   height: 2px;
-  background: var(--color-accent);
+  background: var(--color-accent-green);
 }
 
 .have-not-list li {
@@ -750,7 +740,7 @@ section {
 .have-not-divider {
   width: 1px;
   align-self: stretch;
-  background: rgba(232, 224, 208, 0.14);
+  background: rgba(63, 122, 82, 0.2);
 }
 
 @media (max-width: 760px) {
@@ -767,19 +757,13 @@ section {
 
 /* --- トップページ：インタラクティブマップ ----------------------------------- */
 
+.map-section {
+  padding-top: clamp(24px, 3vw, 48px);
+}
+
 .map-heading {
   text-align: center;
   margin-bottom: clamp(28px, 4vw, 44px);
-}
-
-.map-heading::before {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 1px;
-  margin: 0 auto 18px;
-  background: var(--color-accent);
-  opacity: 0.7;
 }
 
 .map-heading h2 {
@@ -825,7 +809,7 @@ section {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: radial-gradient(140% 130% at 50% 50%, transparent 72%, rgba(26, 20, 17, 0.4) 100%);
+  background: radial-gradient(140% 130% at 50% 50%, transparent 72%, rgba(9, 20, 24, 0.4) 100%);
 }
 
 .map-point {
@@ -837,8 +821,8 @@ section {
   padding: 0;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: rgba(232, 224, 208, 0.12);
-  border: 1px solid rgba(232, 224, 208, 0.4);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.85);
   cursor: pointer;
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
@@ -857,7 +841,7 @@ section {
 .map-point:hover,
 .map-point:focus-visible,
 .map-point.is-active {
-  background: rgba(177, 93, 52, 0.22);
+  background: rgba(185, 102, 29, 0.22);
   border-color: var(--color-accent);
   transform: translate(-50%, -50%) scale(1.15);
   outline: none;
@@ -869,8 +853,8 @@ section {
   top: 0;
   z-index: 3;
   width: 200px;
-  background: rgba(13, 10, 7, 0.94);
-  border: 1px solid rgba(232, 224, 208, 0.16);
+  background: rgba(9, 20, 24, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   text-align: left;
   opacity: 0;
   visibility: hidden;
@@ -894,7 +878,7 @@ section {
   width: 100%;
   aspect-ratio: 1 / 1;
   background-repeat: no-repeat;
-  border-bottom: 1px solid rgba(232, 224, 208, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .map-popup-zoom::after {
@@ -902,7 +886,7 @@ section {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(120% 120% at 50% 50%, transparent 62%, rgba(13, 10, 7, 0.55) 100%);
+  background: radial-gradient(120% 120% at 50% 50%, transparent 62%, rgba(9, 20, 24, 0.55) 100%);
 }
 
 .map-popup-body {
@@ -920,7 +904,7 @@ section {
 .map-popup-desc {
   font-size: 0.8rem;
   line-height: 1.6;
-  color: var(--color-text-muted);
+  color: var(--color-text-on-photo-muted);
 }
 
 .map-list {
@@ -943,7 +927,7 @@ section {
 }
 
 .map-list-item.is-active {
-  background: rgba(177, 93, 52, 0.1);
+  background: rgba(185, 102, 29, 0.12);
 }
 
 .map-list-name {
@@ -1025,9 +1009,9 @@ section {
   z-index: 1;
   background: linear-gradient(
     to bottom,
-    rgba(13, 10, 7, 0.62) 0%,
-    rgba(13, 10, 7, 0.34) 45%,
-    rgba(13, 10, 7, 0.58) 100%
+    rgba(9, 20, 24, 0.62) 0%,
+    rgba(9, 20, 24, 0.34) 45%,
+    rgba(9, 20, 24, 0.58) 100%
   );
 }
 
@@ -1047,17 +1031,17 @@ section {
   display: block;
   font-size: 0.7rem;
   letter-spacing: 0.32em;
-  color: var(--color-text-muted);
+  color: var(--color-text-on-photo-muted);
   margin-bottom: 18px;
   text-transform: uppercase;
-  text-shadow: 0 1px 10px rgba(13, 10, 7, 0.9);
+  text-shadow: 0 1px 10px rgba(9, 20, 24, 0.9);
 }
 
 .page-hero-content h1 {
   font-size: clamp(2rem, 4vw, 2.6rem);
   letter-spacing: 0.14em;
-  color: var(--color-text);
-  text-shadow: 0 2px 14px rgba(13, 10, 7, 0.85), 0 1px 3px rgba(13, 10, 7, 0.9);
+  color: var(--color-text-on-photo);
+  text-shadow: 0 2px 14px rgba(9, 20, 24, 0.85), 0 1px 3px rgba(9, 20, 24, 0.9);
 }
 
 @media (max-width: 600px) {
@@ -1176,7 +1160,7 @@ section {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(160% 140% at 50% 50%, transparent 74%, rgba(26, 20, 17, 0.5) 100%);
+  background: radial-gradient(160% 140% at 50% 50%, transparent 74%, rgba(9, 20, 24, 0.5) 100%);
 }
 
 .tebiki-item-body {
@@ -1237,7 +1221,7 @@ section {
   bottom: 0;
   width: 26px;
   height: 2px;
-  background: var(--color-accent);
+  background: var(--color-accent-green);
 }
 
 .space-grid {
@@ -1288,7 +1272,7 @@ section {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(150% 130% at 50% 50%, transparent 68%, rgba(26, 20, 17, 0.6) 100%);
+  background: radial-gradient(150% 130% at 50% 50%, transparent 68%, rgba(9, 20, 24, 0.6) 100%);
 }
 
 .space-photo figcaption {
@@ -1337,7 +1321,7 @@ section {
   align-items: center;
   justify-content: center;
   padding: clamp(24px, 6vw, 64px);
-  background: rgba(13, 10, 7, 0.94);
+  background: rgba(9, 20, 24, 0.94);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.25s ease;
@@ -1377,13 +1361,13 @@ section {
   font-family: var(--font-serif);
   font-size: 1.05rem;
   letter-spacing: 0.08em;
-  color: var(--color-text);
+  color: var(--color-text-on-photo);
 }
 
 .lightbox-caption-note {
   font-size: 0.86rem;
   letter-spacing: 0.02em;
-  color: var(--color-text-muted);
+  color: var(--color-text-on-photo-muted);
 }
 
 .lightbox-close {
@@ -1393,9 +1377,9 @@ section {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid rgba(232, 224, 208, 0.3);
-  background: rgba(232, 224, 208, 0.06);
-  color: var(--color-text);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text-on-photo);
   font-size: 1.3rem;
   line-height: 1;
   cursor: pointer;
@@ -1407,7 +1391,7 @@ section {
 
 .lightbox-close:hover,
 .lightbox-close:focus-visible {
-  background: rgba(177, 93, 52, 0.18);
+  background: rgba(185, 102, 29, 0.18);
   border-color: var(--color-accent);
   outline: none;
 }
@@ -1525,7 +1509,7 @@ section {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(150% 130% at 50% 50%, transparent 64%, rgba(26, 20, 17, 0.6) 100%);
+  background: radial-gradient(150% 130% at 50% 50%, transparent 64%, rgba(9, 20, 24, 0.6) 100%);
 }
 
 @media (max-width: 760px) {
@@ -1684,16 +1668,16 @@ section {
 }
 
 .access-link {
-  color: var(--color-accent);
+  color: var(--color-accent-green);
   font-size: 0.9rem;
   letter-spacing: 0.04em;
-  border-bottom: 1px solid rgba(177, 93, 52, 0.35);
+  border-bottom: 1px solid rgba(63, 122, 82, 0.4);
   transition: border-color 0.2s ease;
 }
 
 .access-link:hover,
 .access-link:focus-visible {
-  border-color: var(--color-accent);
+  border-color: var(--color-accent-green);
   outline: none;
 }
 
