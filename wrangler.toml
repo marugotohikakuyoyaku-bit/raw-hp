@@ -7,6 +7,9 @@ compatibility_flags = ["nodejs_compat"]
 directory = "."
 binding = "ASSETS"
 
+[observability]
+enabled = true
+
 [[send_email]]
 name = "SEB"
 destination_address = "rawizuoshima@gmail.com"

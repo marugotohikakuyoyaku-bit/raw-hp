@@ -1,5 +1,5 @@
 import { EmailMessage } from "cloudflare:email";
-import { createMimeMessage } from "mimetext";
+import { createMimeMessage, Mailbox } from "mimetext";
 
 const CONTACT_TO = "rawizuoshima@gmail.com";
 const CONTACT_FROM = "contact@rawizuoshima.com";
@@ -38,7 +38,7 @@ async function handleContact(request, env) {
   const msg = createMimeMessage();
   msg.setSender({ name: "籠 —RAW— お問い合わせフォーム", addr: CONTACT_FROM });
   msg.setRecipient(CONTACT_TO);
-  msg.setHeader("Reply-To", email);
+  msg.setHeader("Reply-To", new Mailbox(email));
   msg.setSubject(`【お問い合わせ】${name} 様より`);
   msg.addMessage({
     contentType: "text/plain",
