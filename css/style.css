@@ -1741,3 +1741,89 @@ section {
   background: var(--color-accent);
   color: var(--color-bg);
 }
+
+/* --- お問い合わせフォーム --------------------------------------------------- */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+}
+
+.form-field .required {
+  margin-left: 8px;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: 2px;
+  padding: 2px 6px;
+  vertical-align: middle;
+}
+
+.form-field input,
+.form-field textarea {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 2px;
+  padding: 12px 14px;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--color-accent-green);
+}
+
+.form-status {
+  min-height: 1.4em;
+  font-size: 0.88rem;
+}
+
+.form-status.is-success {
+  color: var(--color-accent-green);
+}
+
+.form-status.is-error {
+  color: var(--color-accent);
+}
+
+.form-submit {
+  align-self: flex-start;
+  padding: 14px 44px;
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  font-family: var(--font-sans);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border: 1px solid var(--color-accent);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.form-submit:hover {
+  opacity: 0.85;
+}
+
+.form-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

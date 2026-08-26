@@ -1,0 +1,11 @@
+{
+  "name": "raw-hp",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "mimetext": "^3.0.24"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}
