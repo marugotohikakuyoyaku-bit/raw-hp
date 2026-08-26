@@ -26,6 +26,7 @@ async function handleContact(request, env) {
 
   const name = String(data.name || "").trim().slice(0, 100);
   const email = String(data.email || "").trim().slice(0, 200);
+  const phone = String(data.phone || "").trim().slice(0, 20);
   const message = String(data.message || "").trim().slice(0, 4000);
 
   if (!name || !email || !message) {
@@ -42,7 +43,7 @@ async function handleContact(request, env) {
   msg.setSubject(`【お問い合わせ】${name} 様より`);
   msg.addMessage({
     contentType: "text/plain",
-    data: `お名前: ${name}\nメールアドレス: ${email}\n\n${message}`,
+    data: `お名前: ${name}\nメールアドレス: ${email}\n電話番号: ${phone || "(未入力)"}\n\n${message}`,
   });
 
   const email_ = new EmailMessage(CONTACT_FROM, CONTACT_TO, msg.asRaw());

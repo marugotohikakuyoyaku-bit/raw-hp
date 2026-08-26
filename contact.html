@@ -63,6 +63,11 @@
           </div>
 
           <div class="form-field">
+            <label for="phone">電話番号</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" maxlength="20">
+          </div>
+
+          <div class="form-field">
             <label for="message">お問い合わせ内容<span class="required">必須</span></label>
             <textarea id="message" name="message" rows="7" required maxlength="4000"></textarea>
           </div>
@@ -113,6 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var name = form.name.value.trim();
     var email = form.email.value.trim();
+    var phone = form.phone.value.trim();
     var message = form.message.value.trim();
 
     if (!name || !email || !message) {
@@ -129,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: name, email: email, message: message })
+      body: JSON.stringify({ name: name, email: email, phone: phone, message: message })
     })
       .then(function (res) {
         if (!res.ok) throw new Error("送信に失敗しました");
